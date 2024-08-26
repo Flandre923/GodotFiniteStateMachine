@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://b512ap5v2ay6y"]
+
+[ext_resource type="PackedScene" uid="uid://bbbm5m67yg8up" path="res://player.tscn" id="1_ilojk"]
+[ext_resource type="PackedScene" uid="uid://cyguxpvjhsj7b" path="res://addons/sprout_lands_tilemap/examples/scenes/HarvestHillExample.tscn" id="3_c5dsc"]
+[ext_resource type="PackedScene" uid="uid://bqvu7l2euqqv7" path="res://diren.tscn" id="3_pynyi"]
+
+[node name="Game" type="Node2D"]
+
+[node name="SproutLandsTileMap" parent="." instance=ExtResource("3_c5dsc")]
+
+[node name="Player" parent="." instance=ExtResource("1_ilojk")]
+position = Vector2(545, 290)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(3, 3)
+
+[node name="diren" parent="." instance=ExtResource("3_pynyi")]
+position = Vector2(571, 350)

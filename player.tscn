@@ -1,0 +1,82 @@
+[gd_scene load_steps=12 format=3 uid="uid://bbbm5m67yg8up"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_0soop"]
+[ext_resource type="Texture2D" uid="uid://cepbcgmvd8ess" path="res://characters/sheets/DinoSprites - vita.png" id="1_q5rh8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yicrm"]
+atlas = ExtResource("1_q5rh8")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_li21f"]
+atlas = ExtResource("1_q5rh8")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tcgyc"]
+atlas = ExtResource("1_q5rh8")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0grei"]
+atlas = ExtResource("1_q5rh8")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y2dym"]
+atlas = ExtResource("1_q5rh8")
+region = Rect2(72, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q26sj"]
+atlas = ExtResource("1_q5rh8")
+region = Rect2(96, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p7r6b"]
+atlas = ExtResource("1_q5rh8")
+region = Rect2(120, 0, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gn37m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yicrm")
+}],
+"loop": true,
+"name": &"idea",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_li21f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tcgyc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0grei")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y2dym")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q26sj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p7r6b")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tp0xq"]
+radius = 3.0
+
+[node name="CharacterBody2D" type="CharacterBody2D" groups=["Player"]]
+script = ExtResource("1_0soop")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_gn37m")
+animation = &"walk"
+autoplay = "idea"
+frame_progress = 0.237234
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+shape = SubResource("CircleShape2D_tp0xq")
